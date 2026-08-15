@@ -1,9 +1,11 @@
+
 public class Member {
     private int memberId;
     private String name;
     private String email;
     private String phone;
 
+    
     Member(int memberId, String name, String email, String phone) {
         this.memberId = memberId;
         this.name = name;
@@ -23,7 +25,7 @@ public class Member {
         return email;
     }
 
-    public String phone() {
+    public String getPhone() {
         return phone;
     }
 
