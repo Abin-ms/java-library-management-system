@@ -139,6 +139,7 @@ public class Library {
 
 
             foundBook.setIssued(true);
+            foundBook.setIssuedTo(foundMember);
             System.out.println("Book issued successfully to member.");
         
     }
