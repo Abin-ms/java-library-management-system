@@ -105,18 +105,41 @@ public class Library {
         }
     }
 
-    public void issueBook(int bookId,int memberId){
+    public void issueBook(int bookId, int memberId) {
         Book foundBook = null;
 
-        for(Book book : books){
-            if(book.getBookId()==bookId){
+        for (Book book : books) {
+            if (book.getBookId() == bookId) {
                 foundBook = book;
             }
         }
 
         if (foundBook == null) {
-            System.out.println("Book Id "+bookId+" is not found.");
-            
+            System.out.println("Book Id " + bookId + " is not found.");
+            return;
+
         }
+        if (foundBook.isIssued()) {
+            System.out.println("Book is already issued.");
+            return;
+        }
+
+        Member foundMember = null;
+
+        for (Member member : members) {
+            if (member.getMemberId() == memberId) {
+                foundMember = member;
+            }
+        }
+        if (foundMember == null) {
+            System.out.println("Member ID " + memberId + " is not found.");
+            return;
+        } 
+
+
+
+            foundBook.setIssued(true);
+            System.out.println("Book issued successfully to member.");
+        
     }
 }
