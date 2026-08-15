@@ -14,21 +14,59 @@ public class Library {
 
         System.out.println("Book added successfully");
     }
+    public void addMember(Member member){
+        members.add(member);
+
+        System.out.println("Member added successfully.");
+    }
 
     public void viewBooks() {
-        for (Book book : books) {
+        if (books.isEmpty()) {
+            System.out.println("No books available in the library.");
+        } else {
 
-            System.out.println("Book id: " + book.getBookId());
-            System.out.println("Title of the book: " + book.getTitle());
-            System.out.println("Author's name: " + book.getAuthor());
-            System.out.println("Category: " + book.getCategory());
+            for (Book book : books) {
 
-            if (!book.isIssued()) {
-                System.out.println("Status: Available");
-            } else {
-                System.out.println("Status: Issued");
+                System.out.println("\nBook id: " + book.getBookId());
+                System.out.println("Title of the book: " + book.getTitle());
+                System.out.println("Author's name: " + book.getAuthor());
+                System.out.println("Category: " + book.getCategory());
+
+                if (!book.isIssued()) {
+                    System.out.println("Status: Available");
+                } else {
+                    System.out.println("Status: Issued\n");
+                }
+
             }
 
+        }
+
+    }
+
+    public void searchBook(int bookId) {
+        boolean found = false;
+
+        for (Book book : books) {
+            if (book.getBookId() == bookId) {
+                found = true;
+
+                System.out.println("\nBook id: " + book.getBookId());
+                System.out.println("Title of the book: " + book.getTitle());
+                System.out.println("Author's name: " + book.getAuthor());
+                System.out.println("Category: " + book.getCategory());
+
+                if (!book.isIssued()) {
+                    System.out.println("Status: Available");
+                } else {
+                    System.out.println("Status: Issued");
+                }
+
+            }
+
+        }
+        if (!found) {
+            System.out.println("Book Id "+bookId+ " not found in the library.");
         }
     }
 }
