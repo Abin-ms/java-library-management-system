@@ -4,6 +4,7 @@ public class Book {
     private String author;
     private String category;
     private boolean isIssued;
+    private Member issuedTo;
 
     Book(int bookId, String title, String author, String category) {
 
@@ -54,4 +55,11 @@ public class Book {
         this.isIssued = isIssued;
     }
 
+
+    public Member getIssuedTo(){
+        return issuedTo;
+    }
+    public void setIssuedTo(Member issuedTo){
+        this.issuedTo = issuedTo;
+    }
 }
