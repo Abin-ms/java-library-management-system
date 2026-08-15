@@ -46,7 +46,7 @@ public class Library {
     }
 
     public void viewMembers() {
-        if (!members.isEmpty()) {
+        if (members.isEmpty()) {
             System.out.println("No members are present.");
         } else {
             for (Member member : members) {
@@ -82,6 +82,41 @@ public class Library {
         }
         if (!found) {
             System.out.println("Book Id " + bookId + " not found in the library.");
+        }
+    }
+
+    public void searchMember(int memberId) {
+        boolean found = false;
+
+        for (Member member : members) {
+            if (member.getMemberId() == memberId) {
+                found = true;
+                System.out.println("\nId : " + member.getMemberId());
+                System.out.println("Name : " + member.getName());
+                System.out.println("Email : " + member.getEmail());
+                System.out.println("Phone no : " + member.getPhone());
+
+            }
+        }
+
+        if (!found) {
+            System.out.println("Member ID " + memberId + " not present.");
+
+        }
+    }
+
+    public void issueBook(int bookId,int memberId){
+        Book foundBook = null;
+
+        for(Book book : books){
+            if(book.getBookId()==bookId){
+                foundBook = book;
+            }
+        }
+
+        if (foundBook == null) {
+            System.out.println("Book Id "+bookId+" is not found.");
+            
         }
     }
 }
