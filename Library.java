@@ -14,7 +14,8 @@ public class Library {
 
         System.out.println("Book added successfully");
     }
-    public void addMember(Member member){
+
+    public void addMember(Member member) {
         members.add(member);
 
         System.out.println("Member added successfully.");
@@ -44,6 +45,20 @@ public class Library {
 
     }
 
+    public void viewMembers() {
+        if (!members.isEmpty()) {
+            System.out.println("No members are present.");
+        } else {
+            for (Member member : members) {
+                System.out.println("Id : " + member.getMemberId());
+                System.out.println("Name : " + member.getName());
+                System.out.println("Email : " + member.getEmail());
+                System.out.println("Phone no : " + member.getPhone());
+
+            }
+        }
+    }
+
     public void searchBook(int bookId) {
         boolean found = false;
 
@@ -66,7 +81,7 @@ public class Library {
 
         }
         if (!found) {
-            System.out.println("Book Id "+bookId+ " not found in the library.");
+            System.out.println("Book Id " + bookId + " not found in the library.");
         }
     }
 }
