@@ -55,6 +55,78 @@ do {
     System.out.print("Enter your choice: ");
     choice = sc.nextInt();
 
+    switch (choice) {
+
+    case 1:
+    System.out.print("Enter Book ID: ");
+    int bookId = sc.nextInt();
+    sc.nextLine();
+
+    System.out.print("Enter Book Title: ");
+    String title = sc.nextLine();
+
+    System.out.print("Enter Author Name: ");
+    String author = sc.nextLine();
+
+    System.out.print("Enter Category: ");
+    String category = sc.nextLine();
+
+    Book book = new Book(bookId, title, author, category);
+
+    library.addBook(book);
+    break;
+
+    case 2:
+        System.out.print("Enter member Id : ");
+        int memberId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Name:");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Email:");
+        String email = sc.nextLine();
+
+        System.out.print("Enter Phone Number:");
+        String phone = sc.nextLine();
+
+        Member member = new Member(memberId, name, email, phone);
+          
+        library.addMember(member);
+        break;
+
+    case 3:
+        library.viewBooks();
+        break;
+
+    case 4:
+        library.viewMembers();
+        break;
+
+    case 5:
+        // Search Book
+        break;
+
+    case 6:
+        // Search Member
+        break;
+
+    case 7:
+        // Issue Book
+        break;
+
+    case 8:
+        // Return Book
+        break;
+
+    case 9:
+        System.out.println("Exiting Library Management System...");
+        break;
+
+    default:
+        System.out.println("Invalid choice. Please try again.");
+}
+
 } while (choice != 9);
     }
 }
