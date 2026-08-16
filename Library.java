@@ -161,10 +161,15 @@ public class Library {
         }
 
         if (!foundBook.isIssued()) {
-            System.out.println("The book is not currentl issued.");
+            System.out.println("The book is not currently issued.");
             return;
 
         }
+
+        foundBook.setIssued(false);
+        foundBook.setIssuedTo(null);
+
+        System.out.println("Book returned successfully.");
 
     }
 }
