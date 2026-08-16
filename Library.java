@@ -134,13 +134,37 @@ public class Library {
         if (foundMember == null) {
             System.out.println("Member ID " + memberId + " is not found.");
             return;
-        } 
+        }
 
+        foundBook.setIssued(true);
+        foundBook.setIssuedTo(foundMember);
+        System.out.println("Book issued successfully to member.");
 
+    }
 
-            foundBook.setIssued(true);
-            foundBook.setIssuedTo(foundMember);
-            System.out.println("Book issued successfully to member.");
-        
+    public void returnBook(int bookId) {
+
+        Book foundBook = null;
+
+        for (Book book : books) {
+            if (book.getBookId() == bookId) {
+                foundBook = book;
+                break;
+
+            }
+        }
+
+        if (foundBook == null) {
+            System.out.println("Book Id " + bookId + " not found.");
+            return;
+
+        }
+
+        if (!foundBook.isIssued()) {
+            System.out.println("The book is not currentl issued.");
+            return;
+
+        }
+
     }
 }
